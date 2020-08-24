@@ -14,6 +14,7 @@ workflows:
           attach-workspace: true
           image: foodlestech/logzio-docker-collector-metrics
           tag: develop
+          dockerfile: dockerfile
           filters:
             branches:
               only:
@@ -25,6 +26,7 @@ workflows:
           attach-workspace: true
           image: foodlestech/logzio-docker-collector-metrics
           tag: latest
+          dockerfile: dockerfile
           extra_tags_env_var: CIRCLE_TAG
           filters:
             tags:
