@@ -13,12 +13,12 @@ workflows:
           checkout: true
           attach-workspace: true
           image: foodlestech/logzio-docker-collector-metrics
-          tag: develop
+          tag: test
           dockerfile: dockerfile
           filters:
             branches:
               only:
-                - develop
+                - test
       - docker-buildx/publish:
           name: build_deploy_docker_tag
           context: docker-publishing
