@@ -20,6 +20,36 @@ workflows:
               only:
                 - develop
       - docker-buildx/publish:
+          name: build_deploy_docker_master
+          context: docker-publishing
+          checkout: false
+          attach-workspace: true
+          image: foodlestech/logzio-docker-collector-metrics
+          extra_build_args: '--build-arg "NPM_TOKEN=${NPM_TOKEN}"'
+          tag: master
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only:
+                - master
+      - docker-buildx/publish:
+          name: build_deploy_docker_beta
+          context: docker-publishing
+          checkout: false
+          attach-workspace: true
+          image: foodlestech/logzio-docker-collector-metrics
+          extra_build_args: '--build-arg "NPM_TOKEN=${NPM_TOKEN}"'
+          tag: beta
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only:
+                - /^release\/.*/
+      - docker-buildx/publish:
           name: build_deploy_docker_tag
           context: docker-publishing
           checkout: true
