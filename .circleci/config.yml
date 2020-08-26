@@ -33,10 +33,9 @@ workflows:
       - docker-buildx/publish:
           name: build_deploy_docker_beta
           context: docker-publishing
-          checkout: false
+          checkout: true
           attach-workspace: true
           image: foodlestech/logzio-docker-collector-metrics
-          extra_build_args: '--build-arg "NPM_TOKEN=${NPM_TOKEN}"'
           tag: beta
           filters:
             branches:
