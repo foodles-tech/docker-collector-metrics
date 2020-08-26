@@ -27,9 +27,6 @@ workflows:
           image: foodlestech/logzio-docker-collector-metrics
           extra_build_args: '--build-arg "NPM_TOKEN=${NPM_TOKEN}"'
           tag: master
-          requires:
-            - build
-            - test
           filters:
             branches:
               only:
@@ -42,9 +39,6 @@ workflows:
           image: foodlestech/logzio-docker-collector-metrics
           extra_build_args: '--build-arg "NPM_TOKEN=${NPM_TOKEN}"'
           tag: beta
-          requires:
-            - build
-            - test
           filters:
             branches:
               only:
