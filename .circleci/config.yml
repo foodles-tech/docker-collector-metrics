@@ -26,6 +26,7 @@ workflows:
           attach-workspace: true
           image: foodlestech/logzio-docker-collector-metrics
           tag: master
+          dockerfile: dockerfile
           filters:
             branches:
               only:
@@ -37,6 +38,7 @@ workflows:
           attach-workspace: true
           image: foodlestech/logzio-docker-collector-metrics
           tag: beta
+          dockerfile: dockerfile
           filters:
             branches:
               only:
