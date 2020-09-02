@@ -29,6 +29,7 @@ RUN apt-get update && \
 COPY modules ${LOGZIO_MODULES_PATH}
 COPY metricbeat.yml ${LOGZIO_DIR_PATH}/
 COPY metricbeat-yml-script.py ${LOGZIO_DIR_PATH}/
+RUN chmod go-w ${LOGZIO_MODULES_PATH}/*.yml
 
 WORKDIR ${LOGZIO_DIR_PATH}
 CMD python metricbeat-yml-script.py
